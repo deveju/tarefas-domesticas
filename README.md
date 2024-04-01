@@ -1,4 +1,4 @@
-## Tarefas domésticas
+# Projeto - Tarefas domésticas
 #### Projeto destinado à criação de um aplicativo destinado à criação, gerência e atribuição de tarefas domésticas à usuários dentro de uma mesma residência/corporação, com a finalidade de organizar quais atividades dados usuários deverão realizar, notificando-os para que lembrem-se.
 ## Requisitos funcionais:
 - CRUD usuários do aplicativo
@@ -22,3 +22,11 @@
 - Não pode haver falhas
 - (Tamanho do aplicativo)
 - Classes: Usuário, Tarefa, Cômodo, Main
+
+# Diagramas
+#### Diagramas usados para realização do projeto
+#### Ou a tentativa dele
+## Caso de Uso
+<img src="https://github.com/deveju/tarefas-domesticas/assets/117952692/0ded3ab4-1141-4e4d-bc5b-59604f45f2f6"></img>
+
+
