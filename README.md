@@ -1,5 +1,6 @@
 # Projeto - Tarefas domésticas
-#### Projeto destinado à criação de um aplicativo destinado à criação, gerência e atribuição de tarefas domésticas à usuários dentro de uma mesma residência/corporação, com a finalidade de organizar quais atividades dados usuários deverão realizar, notificando-os para que lembrem-se.
+#### Projeto destinado à criação de um aplicativo destinado à criação, gerência e atribuição de tarefas domésticas à usuários dentro de uma mesma residência/corporação, com a finalidade de organizar quais atividades dados usuários deverão realizar, notificando-os para que se lembrem de completá-las.
+
 ## Requisitos funcionais:
 - CRUD usuários do aplicativo
 - Adicionar Cômodos
