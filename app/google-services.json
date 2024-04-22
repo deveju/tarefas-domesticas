@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "704897324782",
+    "project_id": "dometask-295ac",
+    "storage_bucket": "dometask-295ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704897324782:android:9c720de7cb4d1516cd85ff",
+        "android_client_info": {
+          "package_name": "com.example.dometask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjKgUIAjFbmA71eqyG2MUwsqb1i9WLgBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

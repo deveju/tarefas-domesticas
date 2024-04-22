@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/androidbg"
+    tools:context=".SignUpActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        android:backgroundTint="@color/marrom_claro2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:padding="24dp"
+            android:background="@drawable/custom_edittext">
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register"
+                android:textSize="36sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/marrom_medio"/>
+            
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/signup_email"
+                android:background="@drawable/custom_edittext"
+                android:layout_marginTop="40dp"
+                android:padding="8dp"
+                android:hint="@string/email"
+                android:textColorHint="@color/marrom_medio"
+                android:drawableStart="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/marrom_medio"/>
+
+            <EditText
+                android:id="@+id/signup_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/custom_edittext"
+                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:hint="@string/password"
+                android:textColorHint="@color/marrom_medio"
+                android:drawableStart="@drawable/baseline_lock_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/marrom_medio"
+                android:inputType="textPassword"
+                android:drawableEnd="@drawable/baseline_visibility_24"
+                android:gravity="center_vertical"
+                android:paddingEnd="16dp"
+                android:paddingStart="8dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:id="@+id/signup_button"
+                android:text="@string/register"
+                android:textSize="18sp"
+                android:textColor="@color/marrom_claro2"
+                android:backgroundTint="@color/marrom_medio"
+                android:layout_gravity="center"
+                />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/already_user"
+                    android:padding="8dp"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="0dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/marrom_medio"
+                    android:textSize="18sp"
+                    android:maxLines="1"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/loginRedirectText"
+                    android:text="@string/do_login"
+                    android:padding="8dp"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="0dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/marrom_escuro"
+                    android:textSize="18sp"
+                    android:maxLines="1"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
