@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">DomeTask</string>
+    <string name="email">Email</string>
+    <string name="password">Senha</string>
+    <string name="recover_password">Recuperar Senha</string>
+    <string name="send_link">Enviar Link</string>
+    <string name="not_user">Não é um usuário?</string>
+    <string name="forgot_pass">Esqueceu a senha?</string>
+    <string name="login">Login</string>
+    <string name="login2">Entrar</string>
+    <string name="register">Registre-se</string>
+    <string name="already_user">Já é um usuário?</string>
+    <string name="do_login">Faça login</string>
+    <string name="nothing">-</string>
+    <string name="title1">DomeTask</string>
+    <string name="title2">Login</string>
+    <string name="title3">Crie ou conecte-se a uma sala</string>
+    <string name="content1">Bem-vindo ao aplicativo feito para você, que quer organizar suas tarefas domésticas com facilidade e atribuir a outros.</string>
+    <string name="content2">Para acessar o aplicativo é necessário ter uma conta, para criá-la é simples, apenas coloque seu email e crie uma senha.</string>
+    <string name="content3">Você pode criar uma sala para o grupo que mora com você ou juntar-se a uma sala para usufruir das funcionalidades do aplicativo.</string>
+
+    <!-- Strings do side menu -->
+    <string name="title_activity_main2">Home</string>
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+    <string name="nav_header_title">DomeTask</string>
+    <string name="nav_header_subtitle">Organização de Tarefas Domésticas</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!-- Título do action das configurações -->
+    <string name="action_settings">Configurações</string>
+
+    <!-- Título do action do logout + AlertBox do logout-->
+    <string name="action_logout">Sair da conta</string>
+    <string name="confirmLogout_dialog_title">Desconectar?</string>
+    <string name="confirmLogout_dialog_message">Tem certeza que deseja se desconectar da conta?</string>
+    <string name="confirmLogout">Confirmar</string>
+    <string name="cancelLogout">Cancelar</string>
+
+    <!-- AlertBox da criação de salas -->
+    <string name="roomAlertTitle_dialog_title">Criar ou Entrar?</string>
+    <string name="newRoom_dialog_message">Deseja criar ou entrar em uma sala?</string>
+    <string name="newRoom">Criar</string>
+    <string name="joinRoom">Entrar</string>
+
+    <!-- Menu home-->
+    <string name="menu_home">Home</string>
+    <string name="fragment_home_text">Home do app. TODO: Lista das salas</string>
+
+    <!-- Menu de ajuda-->
+    <string name="menu_help">Ajuda</string>
+    <string name="fragment_help_text">Tutorial do app. TODO: Fazer um tutorial básico</string>
+
+    <!-- Menu da sala-->
+    <string name="menu_room">Sala</string>
+    <string name="fragment_room_text">Sala… TODO: TUDO</string>
+
+    <!-- Tutorial -->
+    <string name="tutorial_1">Para entrar ou criar uma sala, vá à página Home e clique no botão: </string>
+    <string name="tutorial_2">Para acessar as configurações ou desconectar sua conta, vá à página Home e clique nos 3 pontinhos localizado no canto superior direito. </string>
+
+    <!-- Configurações-->
+    <string name="settings_appnotif">Notificações pelo aplicativo</string>
+    <string name="settings_emailnotif">Notificações por e-mail</string>
+    <string name="settings_cringe">Permitir ser cringe</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="newRoom_create">Criar</string>
+    <string name="newRoom_hint">Criar Hint\n</string>
+    <string name="newRoom_dialog_title">Criar dialog title\n</string>
+    <string name="cancel">Criar cancel</string>
+    <string name="change_status">Alterar Status</string>
+    <string name="delete_status">Excluir</string>
+    <string name="confirmDelete_dialog_message">Deseja mesmo excluir a tarefa?</string>
+    <string name="confirmDelete_dialog_title">Excluir?</string>
+    <string name="dialog_new_task_description">Descrição</string>
+    <string name="dialog_new_task_title">Título</string>
+    <string name="room_add_task">Adicionar Tarefa</string>
+</resources>
