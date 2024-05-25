@@ -41,41 +41,44 @@ public class RoomFragment extends Fragment {
     private List<Task> taskList;
     private TaskAdapter adapter;
     private LayoutInflater inflater;
-    private DatabaseReference userTaskListRef;
-    private String taskListId = "defaultTaskListId";
-    private String userId;
+    private DatabaseReference roomTaskListRef;
+    private String roomId;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.inflater = inflater;
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = auth.getCurrentUser();
-        if (currentUser != null) {
-            userId = currentUser.getUid();
-        } else {
-            // Usuário n logado
+        Bundle args = getArguments();
+        if (args != null) {
+            roomId = args.getString("roomId");
+        }
+        if (roomId == null) {
+            throw new IllegalArgumentException("O ID da sala deve ser disponibilizado!");
         }
 
+        // Instâncias Firebase
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        userTaskListRef = mDatabase.child("users").child(userId).child("taskList").child(taskListId);
+        roomTaskListRef = mDatabase.child("rooms").child(roomId).child("tasks");
 
+        // ViewModel
         RoomViewModel roomViewModel = new ViewModelProvider(this).get(RoomViewModel.class);
 
+        // Binding
         binding = FragmentRoomBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         // RecyclerView
         RecyclerView recyclerView = binding.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // ArrayList da lista de tarefas e inicialização do adapter das tarefas
         taskList = new ArrayList<>();
-        adapter = new TaskAdapter(taskList, userTaskListRef);
+        adapter = new TaskAdapter(taskList, roomTaskListRef);
         recyclerView.setAdapter(adapter);
 
         // Carregar a lista de tarefas do Firebase
         loadTaskListFromFirebase();
 
-        // Botão para adicionar nova tarefa
         Button buttonAddTask = binding.buttonAddTask;
         buttonAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,72 +90,74 @@ public class RoomFragment extends Fragment {
         return root;
     }
 
+    // Nova instância do Fragmento de sala
+    public static RoomFragment newInstance(String roomId) {
+        RoomFragment fragment = new RoomFragment();
+        Bundle args = new Bundle();
+        args.putString("roomId", roomId);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    // Carregar as tarefas do Firebase
     private void loadTaskListFromFirebase() {
-        userTaskListRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        roomTaskListRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    taskList = dataSnapshot.getValue(new GenericTypeIndicator<ArrayList<Task>>() {});
+                    GenericTypeIndicator<ArrayList<Task>> t = new GenericTypeIndicator<ArrayList<Task>>() {};
+                    taskList = dataSnapshot.getValue(t);
                     if (taskList == null) {
                         taskList = new ArrayList<>();
                     }
+                    // Adicionar a lista à sala
+                    adapter.setTaskList(taskList);
                 } else {
                     taskList = new ArrayList<>();
                 }
-
                 adapter.setTaskList(taskList);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("FirebaseError", "Error loading tasks: " + databaseError.getMessage());
+                Log.e("FirebaseError", "Erro ao carregar as tarefas: " + databaseError.getMessage());
             }
         });
     }
 
+    // Criar nova tarefa
     private void addNewTask() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Criar nova tarefa!");
+        builder.setTitle("Criar nova tarefa: ");
 
-        // Inflar a tela pro diálogo
         View dialogView = inflater.inflate(R.layout.dialog_new_task, null);
         builder.setView(dialogView);
 
         EditText editTextTitle = dialogView.findViewById(R.id.edit_text_title);
         EditText editTextDescription = dialogView.findViewById(R.id.edit_text_description);
 
-        // Botões do diálogo
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Criar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String title = editTextTitle.getText().toString().trim();
                 String description = editTextDescription.getText().toString().trim();
-                // Verifique se os campos não estão vazios
                 if (!title.isEmpty() && !description.isEmpty()) {
-                    // Crie uma nova tarefa | OBS: o 'title' está escrito com a primeira letra em maiúsculo
                     Task newTask = new Task(title.substring(0, 1).toUpperCase() + title.substring(1), description, taskList.size() + 1, false);
-
-                    // Adicione a nova tarefa à lista
                     taskList.add(newTask);
-
-                    // Notifique o adapter que um item foi inserido
                     adapter.notifyItemInserted(taskList.size() - 1);
-
-                    // Atualize a lista de tarefas no Firebase
-                    userTaskListRef.setValue(taskList).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    roomTaskListRef.setValue(taskList).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.d("Firebase", "Tarefa adicionada com sucesso!");
                                 Toast.makeText(getContext(), "Tarefa adicionada com sucesso!", Toast.LENGTH_SHORT).show();
                             } else {
-                                Log.e("FirebaseError", "Erro ao adicionar a tarefa.");
-                                Toast.makeText(getContext(), "Erro ao adicionar a tarefa.", Toast.LENGTH_SHORT).show();
+                                Log.e("FirebaseError", "Erro ao adicionar tarefa!");
+                                Toast.makeText(getContext(), "Erro ao adicionar tarefa!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                 } else {
-                    // Caso os campos estejam vazios
                     Toast.makeText(getContext(), "Os campos não podem estar vazios!", Toast.LENGTH_SHORT).show();
                 }
             }

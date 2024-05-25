@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <permission android:name="com.example.dometask.permission.PUSH_NOTIFICATIONS"
+        android:label="Permissão de Notificações 'Push'" />
+    <uses-permission android:name="com.example.dometask.permission.PUSH_NOTIFICATIONS" />
+
+    <!-- Definindo a permissão EMAIL_NOTIFICATIONS -->
+    <permission android:name="com.example.dometask.permission.EMAIL_NOTIFICATIONS"
+        android:label="Permissão de Notificações por E-mail" />
+    <uses-permission android:name="com.example.dometask.permission.EMAIL_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +22,7 @@
         android:theme="@style/Theme.DomeTask"
         tools:targetApi="31">
         <activity
-            android:name=".RoomActivity"
+            android:name=".HelpActivity"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"

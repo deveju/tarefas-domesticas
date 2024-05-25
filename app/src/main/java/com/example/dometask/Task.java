@@ -5,7 +5,7 @@ public class Task {
     private int id;
     private boolean status;
 
-    // Construtor vazio (para o FireBase)
+    // Construtor vazio (para o FireBase) "Room:"
     public Task() {
     }
 

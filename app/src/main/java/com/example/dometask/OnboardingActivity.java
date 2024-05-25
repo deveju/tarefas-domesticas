@@ -25,9 +25,11 @@ public class OnboardingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
 
+        // Salvar no cache do dispositivo caso o usuário já tenha visto a onboarding inteira
         SharedPreferences sharedPreferences = getSharedPreferences("onboarding", MODE_PRIVATE);
         onboardingCompleted = sharedPreferences.getBoolean("onboardingCompleted", false);
 
+        // Caso já tenha visto, ir para tela de registro
         if (onboardingCompleted) {
             startActivity(new Intent(OnboardingActivity.this, SignUpActivity.class));
             finish();
@@ -36,12 +38,14 @@ public class OnboardingActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
+        // Instância do PaperOnboarding
         final PaperOnboardingFragment paperOnboardingFragment = PaperOnboardingFragment.newInstance(getDataForOnBoarding());
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, paperOnboardingFragment);
         fragmentTransaction.commit();
 
+        // Ao finalizar o Onboarding
         paperOnboardingFragment.setOnRightOutListener(new PaperOnboardingOnRightOutListener() {
             @Override
             public void onRightOut() {
@@ -57,6 +61,7 @@ public class OnboardingActivity extends AppCompatActivity {
         });
     }
 
+    // Páginas do Onboarding
     private ArrayList<PaperOnboardingPage> getDataForOnBoarding() {
         PaperOnboardingPage src1 = new PaperOnboardingPage(
                 getResources().getString(R.string.title1),
@@ -79,6 +84,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 R.drawable.baseline_people_24,
                 R.drawable.baseline_stars_24);
 
+        // Adicionando os elementos ao ArrayList do Onboarding
         ArrayList<PaperOnboardingPage> elements = new ArrayList<>();
         elements.add(src1);
         elements.add(src2);

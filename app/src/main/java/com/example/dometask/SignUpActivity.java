@@ -38,10 +38,15 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        // Instância Firebase Authentication
         auth = FirebaseAuth.getInstance();
+
+        // Pegar as variáveis que o usuário digitar / Botão de Registro
         signupEmail = findViewById(R.id.signup_email);
         signupPassword = findViewById(R.id.signup_password);
         signupButton = findViewById(R.id.signup_button);
+
+        // Texto para ir à tela de login
         loginRedirectText = findViewById(R.id.loginRedirectText);
 
         // Se o usuário já estiver logado
@@ -51,26 +56,28 @@ public class SignUpActivity extends AppCompatActivity {
             startActivity(new Intent(SignUpActivity.this, MainActivity2.class));
         }
 
-        // Comentar resto
+        // Quando o usuário clicar em Registrar-se
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Salvar email e senha na variável
                 String user = signupEmail.getText().toString().trim();
                 String pass = signupPassword.getText().toString().trim();
 
+                // Se algum dos campos estiverem vazios
                 if(user.isEmpty()) {
                     signupEmail.setError("O campo 'Email' não pode estar vazio");
                 }
                 if(pass.isEmpty()) {
                     signupPassword.setError("O campo 'Senha' não pode estar vazia");
-                } else {
+                } else { // Caso contrário
                     auth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()) {
+                            if(task.isSuccessful()) { // Sucesso
                                 Toast.makeText(SignUpActivity.this, "Registro Concluído!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
-                            } else {
+                            } else { // Erro
                                 String errorMessage = "Falha ao Registrar: ";
                                 Exception exception = task.getException();
 
@@ -94,10 +101,13 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
         final EditText signupPasswordEditText = signupPassword; // findViewById(R.id.signup_password)
+
+        // Icones usados
         final Drawable visibleIcon = ContextCompat.getDrawable(this, R.drawable.baseline_visibility_24);
         final Drawable invisibleIcon = ContextCompat.getDrawable(this, R.drawable.baseline_visibility_off_24);
         final Drawable lockIcon = ContextCompat.getDrawable(this, R.drawable.baseline_lock_24);
 
+        // Código para esconder a senha do usuário
         signupPasswordEditText.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -122,6 +132,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        // Enviar para tela de login, caso clicada
         loginRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,5 +1,6 @@
 package com.example.dometask;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,9 +36,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TaskViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Task task = taskList.get(position);
-        holder.taskTitle.setText(task.getTitle());
+        holder.taskTitle.setText("[ID " + (position + 1) + "] Título: " + task.getTitle());
         holder.taskDescription.setText(task.getDescription());
         holder.taskStatus.setText(task.getStatus() ? "Completada" : "Em aberto");
         holder.taskStatus.setBackgroundColor(task.getStatus() ? Color.rgb(25, 62, 1) : Color.rgb(101, 22, 22));

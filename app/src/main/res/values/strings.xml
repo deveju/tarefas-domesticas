@@ -75,14 +75,14 @@
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="newRoom_create">Criar</string>
     <string name="newRoom_hint">Criar Hint\n</string>
     <string name="newRoom_dialog_title">Criar dialog title\n</string>
-    <string name="cancel">Criar cancel</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
     <string name="change_status">Alterar Status</string>
     <string name="delete_status">Excluir</string>
     <string name="confirmDelete_dialog_message">Deseja mesmo excluir a tarefa?</string>
@@ -90,4 +90,11 @@
     <string name="dialog_new_task_description">Descrição</string>
     <string name="dialog_new_task_title">Título</string>
     <string name="room_add_task">Adicionar Tarefa</string>
+    <string name="dialog_permission_push">Permitir Notificações no Aplicativo</string>
+    <string name="dialog_permissions_email">Permitir Notificações pelo Email</string>
+    <string name="confirmDeleteRoom_dialog_message">Deseja deletar a sala?</string>
+    <string name="confirmDeleteRoom_dialog_title">Deletar</string>
+    <string name="tutorial_3">Para ver as salas em que você está, basta clicar no botão do menu superior esquerdo, lá estará todas as suas salas.</string>
+    <string name="dialog_new_room_name">Nome</string>
+    <string name="task_title_format">[ID %1$d] Título: %2$s</string>
 </resources>
