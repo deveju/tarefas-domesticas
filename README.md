@@ -34,6 +34,11 @@
 
 # Diagramas
 #### Diagramas usados para realização do projeto
-#### Ou a tentativa dele
 ## Caso de Uso
-<img src="https://github.com/deveju/tarefas-domesticas/assets/117952692/0ded3ab4-1141-4e4d-bc5b-59604f45f2f6"></img>
+<img src="assets/img-diagrama-de-caso-de-uso" width="50%"></img>
+
+## Arquitetura Lógica
+<img src="assets/img-diagrama-de-arquitetura-logica.jpg" width="50%"></img>
+
+## Arquitetura Física
+<img src="assets/img-diagrama-de-arquitetura-fisica.jpg" width="50%"></img>
