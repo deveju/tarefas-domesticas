@@ -35,7 +35,7 @@
 # Diagramas
 #### Diagramas usados para realização do projeto
 ## Caso de Uso
-<img src="assets/img-diagrama-de-caso-de-uso" width="50%"></img>
+<img src="assets/img-diagrama-caso-de-uso.jpg" width="50%"></img>
 
 ## Arquitetura Lógica
 <img src="assets/img-diagrama-de-arquitetura-logica.jpg" width="50%"></img>
